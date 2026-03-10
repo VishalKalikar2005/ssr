@@ -5,7 +5,7 @@ certain choices were made.
 
 ## Data flows
 
-Supabase Auth encodes a user's session using an access token (a JWT,
+Indobase Auth encodes a user's session using an access token (a JWT,
 symmetrically signed) and a refresh token (a unique string that can be only
 used once to issue a new access token).
 
@@ -81,7 +81,7 @@ these state changes with regards to a stored item's value:
      the full cookie be set to the value.
 
 If these state changes are not implemented correctly, it can lead to issues in
-the Supabase Auth library such as:
+the Indobase Auth library such as:
 
 - Reading garbled data (reading stale chunks).
 - Reading stale data (as the non-chunked version is preferential, failing to
@@ -154,7 +154,7 @@ metadata.
 To write to the database, you have to use the `Set-Cookie` header, which is
 like the `INSERT` or `UPDATE` commands.
 
-Since the Supabase Auth library uses cookies only to store the session, the
+Since the Indobase Auth library uses cookies only to store the session, the
 `Max-Age` option of a cookie (as a chunk or otherwise) must be set to a very
 high number. This ensures that the browser will always send the value to the
 server, and not "delete it."
@@ -169,7 +169,7 @@ browser.
 As mentioned previously, cookies can [only hold US ASCII characters **not including** `"`, `,`,
 `;`, `\`, `\n`, `\r`, and other
 whitespace](https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1). But,
-Supabase Auth's library encodes stored items as JSON.
+Indobase Auth's library encodes stored items as JSON.
 
 This means that, technically, these values must not be used as-is as cookies
 and some transformation to the JSON needs to be made to conform to the
@@ -254,11 +254,11 @@ All SSR frameworks today can be described as having the following patterns:
 
 As you can see, patterns 1 and 2 allow full access to cookies on the server,
 while pattern 3 allows for read-only access on the server. This means that any
-Supabase Client object on the server must be able to conditionally "set"
+Indobase Client object on the server must be able to conditionally "set"
 cookies and always allow access to reading them.
 
 As the cookie access method per framework (or version of framework) varies, the
-`createServerClient` function exposes an interface for getting and optionally
+`createServerIndobaseClient` function exposes an interface for getting and optionally
 setting cookies:
 
 - `getAll` a function that returns _all_ cookies associated with the request as
@@ -269,7 +269,7 @@ setting cookies:
 name: string; value: string; options: CookieOptions }`. Each of those _must_
   be set **both on the request (when available, usually in middlewares) and response**. If the client is used in server-rendered pages and components (pattern 3) and setting of cookies is not possible, the library must emit a warning that setting of cookies is required but not available. This is a developer aid to help identify mutations in server-rendering which is a code smell.
 
-On the browser (client) the `createBrowserClient` function will use the
+On the browser (client) the `createBrowserIndobaseClient` function will use the
 underlying `document.cookie` API automatically. If this is not supported for
 some reason, **both `getAll` and `setAll` must be specified.** The client must
 always be able to set cookies, as access tokens and refresh tokens are
@@ -285,7 +285,7 @@ First contentful paint, etc.).
 
 It's important to notice that server-rendering _primarily_ comes into play on
 fresh page loads. Once a page has been rendered and hydrated in the browser,
-client React compoenents take over. When using the Supabase Auth library in the
+client React compoenents take over. When using the Indobase Auth library in the
 browser in such a way, the user's session (access and refresh tokens) are
 proactively and ahead-of-time refreshed, meaning that they are continuously set
 as cookies well ahead of their expiry time.
@@ -304,7 +304,7 @@ happens when a user opens a brand new tab after a while and types
 3. The server client is created with a `getAll` that retrieves the cookies.
 4. The server client notices that the access token stored in the cookies has
    been expired for hours or days.
-5. It calls the `POST /token?grant_type=refresh_token` endpoint of Supabase
+5. It calls the `POST /token?grant_type=refresh_token` endpoint of Indobase
    Auth to get a new access token (or to detect that the user has been signed
    out due to session termination).
 6. Finally calls `setAll` with the new cookies that need to be set or cleared.
@@ -318,7 +318,7 @@ will keep the access token up-to-date so any future server-side rendering is
 unlikely to need to refresh the user's session.
 
 There are two key points to identify from this about the behavior of
-`createServerClient`:
+`createServerIndobaseClient`:
 
 1. **Using the middleware pattern is mandatory. Session refresh happens in the
    middleware.** Not using a middleware function means that the session will

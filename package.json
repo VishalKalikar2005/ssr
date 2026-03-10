@@ -1,51 +1,41 @@
 {
-  "name": "@supabase/ssr",
+  "name": "@indobase/ssr",
   "version": "0.9.0",
-  "description": "Use the Supabase JavaScript library in popular server-side rendering (SSR) frameworks.",
+  "description": "Indobase SSR client utilities for server-side frameworks",
   "main": "dist/main/index.js",
   "module": "dist/module/index.js",
   "scripts": {
     "build": "tsc && tsc -p tsconfig.main.json",
     "test": "vitest --coverage"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/supabase/ssr.git"
-  },
+  "repository": "https://github.com/Indobase/ssr",
   "keywords": [
-    "Supabase",
-    "SSR",
-    "Server-Side",
-    "Rendering",
-    "Next",
-    "Next.js",
-    "NextJS",
-    "Remix",
-    "Svelte",
-    "SvelteKit",
-    "Postgres"
+    "indobase",
+    "ssr",
+    "database",
+    "auth",
+    "backend"
   ],
-  "author": "Supabase, Inc.",
+  "author": "Indobase, Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/supabase/ssr/issues"
+    "url": "https://github.com/indobase/ssr/issues"
   },
-  "homepage": "https://github.com/supabase/ssr#readme",
+  "homepage": "https://github.com/indobase/ssr#readme",
   "devDependencies": {
     "@eslint/js": "^9.3.0",
-    "@supabase/supabase-js": "2.99.0",
     "@types/node": "^24.3.0",
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
+    "indobase-js": "npm:@supabase/supabase-js@2.99.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.10.0",
     "vitest": "^1.6.0"
   },
-  "peerDependencies": {
-    "@supabase/supabase-js": "^2.99.0"
-  },
+  "peerDependencies": {},
   "dependencies": {
-    "cookie": "^1.0.2"
+    "cookie": "^1.0.2",
+    "indobase-js": "npm:@supabase/supabase-js@2.99.0"
   }
 }

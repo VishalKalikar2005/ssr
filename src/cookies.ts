@@ -27,9 +27,9 @@ const BASE64_PREFIX = "base64-";
  * Creates a storage client that handles cookies correctly for browser and
  * server clients with or without properly provided cookie methods.
  *
- * @param options The options passed to createBrowserClient or createServer client.
+ * @param options The options passed to createBrowserIndobaseClient or createServer client.
  *
- * @param isServerClient Whether it's called from createServerClient.
+ * @param isServerClient Whether it's called from createServerIndobaseClient.
  */
 export function createStorageFromOptions(
   options: {
@@ -103,12 +103,12 @@ export function createStorageFromOptions(
       } else if (isServerClient) {
         setAll = async () => {
           console.warn(
-            "@supabase/ssr: createServerClient was configured without set and remove cookie methods, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness. Consider switching to the getAll and setAll cookie methods instead of get, set and remove which are deprecated and can be difficult to use correctly.",
+            "@indobase/ssr: createServerIndobaseClient was configured without set and remove cookie methods, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness. Consider switching to the getAll and setAll cookie methods instead of get, set and remove which are deprecated and can be difficult to use correctly.",
           );
         };
       } else {
         throw new Error(
-          "@supabase/ssr: createBrowserClient requires configuring a getAll and setAll cookie method (deprecated: alternatively both get, set and remove can be used)",
+          "@indobase/ssr: createBrowserIndobaseClient requires configuring a getAll and setAll cookie method (deprecated: alternatively both get, set and remove can be used)",
         );
       }
     } else if ("getAll" in cookies) {
@@ -119,18 +119,18 @@ export function createStorageFromOptions(
       } else if (isServerClient) {
         setAll = async () => {
           console.warn(
-            "@supabase/ssr: createServerClient was configured without the setAll cookie method, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness.",
+            "@indobase/ssr: createServerIndobaseClient was configured without the setAll cookie method, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness.",
           );
         };
       } else {
         throw new Error(
-          "@supabase/ssr: createBrowserClient requires configuring both getAll and setAll cookie methods (deprecated: alternatively both get, set and remove can be used)",
+          "@indobase/ssr: createBrowserIndobaseClient requires configuring both getAll and setAll cookie methods (deprecated: alternatively both get, set and remove can be used)",
         );
       }
     } else {
       // neither get nor getAll is present on cookies, only will occur if pure JavaScript is used, but cookies is an object
       throw new Error(
-        `@supabase/ssr: ${isServerClient ? "createServerClient" : "createBrowserClient"} requires configuring getAll and setAll cookie methods (deprecated: alternatively use get, set and remove).${isBrowser() ? " As this is called in a browser runtime, consider removing the cookies option object to use the document.cookie API automatically." : ""}`,
+        `@indobase/ssr: ${isServerClient ? "createServerIndobaseClient" : "createBrowserIndobaseClient"} requires configuring getAll and setAll cookie methods (deprecated: alternatively use get, set and remove).${isBrowser() ? " As this is called in a browser runtime, consider removing the cookies option object to use the document.cookie API automatically." : ""}`,
       );
     }
   } else if (!isServerClient && isBrowser()) {
@@ -154,7 +154,7 @@ export function createStorageFromOptions(
     };
   } else if (isServerClient) {
     throw new Error(
-      "@supabase/ssr: createServerClient must be initialized with cookie options that specify getAll and setAll functions (deprecated, not recommended: alternatively use get, set and remove)",
+      "@indobase/ssr: createServerIndobaseClient must be initialized with cookie options that specify getAll and setAll functions (deprecated, not recommended: alternatively use get, set and remove)",
     );
   } else {
     // getting cookies when there's no window but we're in browser mode can be OK, because the developer probably is not using auth functions
@@ -165,7 +165,7 @@ export function createStorageFromOptions(
     // this is NOT OK because the developer is using auth functions that require setting some state, so that must error out
     setAll = () => {
       throw new Error(
-        "@supabase/ssr: createBrowserClient in non-browser runtimes (including Next.js pre-rendering mode) was not initialized cookie options that specify getAll and setAll functions (deprecated: alternatively use get, set and remove), but they were needed",
+        "@indobase/ssr: createBrowserIndobaseClient in non-browser runtimes (including Next.js pre-rendering mode) was not initialized cookie options that specify getAll and setAll functions (deprecated: alternatively use get, set and remove), but they were needed",
       );
     };
   }
@@ -299,11 +299,11 @@ export function createStorageFromOptions(
 
   // This is the server client. It only uses getAll to read the initial
   // state. Any subsequent changes to the items is persisted in the
-  // setItems and removedItems objects. createServerClient *must* use
+  // setItems and removedItems objects. createServerIndobaseClient *must* use
   // getAll, setAll and the values in setItems and removedItems to
   // persist the changes *at once* when appropriate (usually only when
   // the TOKEN_REFRESHED, USER_UPDATED or SIGNED_OUT events are fired by
-  // the Supabase Auth client).
+  // the Indobase Auth client).
   return {
     getAll,
     setAll,
@@ -394,7 +394,7 @@ export function createStorageFromOptions(
 }
 
 /**
- * When createServerClient needs to apply the created storage to cookies, it
+ * When createServerIndobaseClient needs to apply the created storage to cookies, it
  * should call this function which handles correcly setting cookies for stored
  * and removed items in the storage.
  */

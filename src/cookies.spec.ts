@@ -134,7 +134,7 @@ describe("createStorageFromOptions in browser without cookie methods", () => {
   });
 });
 
-describe("createStorageFromOptions for createServerClient", () => {
+describe("createStorageFromOptions for createServerIndobaseClient", () => {
   describe("storage without setAll or without set / remove cookie methods", () => {
     let warnings: any[][] = [];
 
@@ -174,7 +174,7 @@ describe("createStorageFromOptions for createServerClient", () => {
 
       expect(warnings).toEqual([
         [
-          "@supabase/ssr: createServerClient was configured without the setAll cookie method, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness.",
+          "@indobase/ssr: createServerIndobaseClient was configured without the setAll cookie method, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness.",
         ],
       ]);
     });
@@ -202,7 +202,7 @@ describe("createStorageFromOptions for createServerClient", () => {
 
       expect(warnings).toEqual([
         [
-          "@supabase/ssr: createServerClient was configured without set and remove cookie methods, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness. Consider switching to the getAll and setAll cookie methods instead of get, set and remove which are deprecated and can be difficult to use correctly.",
+          "@indobase/ssr: createServerIndobaseClient was configured without set and remove cookie methods, but the client needs to set cookies. This can lead to issues such as random logouts, early session termination or increased token refresh requests. If in NextJS, check your middleware.ts file, route handlers and server actions for correctness. Consider switching to the getAll and setAll cookie methods instead of get, set and remove which are deprecated and can be difficult to use correctly.",
         ],
       ]);
     });
@@ -546,7 +546,7 @@ describe("createStorageFromOptions for createServerClient", () => {
   });
 });
 
-describe("createStorageFromOptions for createBrowserClient", () => {
+describe("createStorageFromOptions for createBrowserIndobaseClient", () => {
   describe("storage with getAll, setAll", () => {
     it("should call getAll on each getItem", async () => {
       let getAllCalls = 0;

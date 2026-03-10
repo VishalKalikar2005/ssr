@@ -2,17 +2,17 @@ import { describe, it, expect } from "vitest";
 
 import { MAX_CHUNK_SIZE, stringToBase64URL } from "./utils";
 import { CookieOptions } from "./types";
-import { createBrowserClient } from "./createBrowserClient";
+import { createBrowserIndobaseClient } from "./createBrowserIndobaseClient";
 
-describe("createServerClient", () => {
+describe("createServerIndobaseClient", () => {
   describe("validation", () => {
     it("should throw an error on empty URL and anon key", async () => {
       expect(() => {
-        createBrowserClient("URL", "");
+        createBrowserIndobaseClient("URL", "");
       }).toThrow();
 
       expect(() => {
-        createBrowserClient("", "anon key");
+        createBrowserIndobaseClient("", "anon key");
       }).toThrow();
     });
   });

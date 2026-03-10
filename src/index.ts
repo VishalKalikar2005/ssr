@@ -2,10 +2,10 @@
 if (typeof process !== "undefined" && process.env?.npm_package_name) {
   const packageName = process.env.npm_package_name;
   const deprecatedPackages = [
-    "@supabase/auth-helpers-nextjs",
-    "@supabase/auth-helpers-react",
-    "@supabase/auth-helpers-remix",
-    "@supabase/auth-helpers-sveltekit",
+    "@indobase/auth-helpers-nextjs",
+    "@indobase/auth-helpers-react",
+    "@indobase/auth-helpers-remix",
+    "@indobase/auth-helpers-sveltekit",
   ];
 
   if (deprecatedPackages.includes(packageName)) {
@@ -15,23 +15,26 @@ if (typeof process !== "undefined" && process.env?.npm_package_name) {
 ║                                                                            ║
 ║ The ${packageName.padEnd(35)} package name is deprecated.  ║
 ║                                                                            ║
-║ You are now using @supabase/ssr - a unified solution for all frameworks.  ║
+║ You are now using @indobase/ssr - a unified solution for all frameworks.  ║
 ║                                                                            ║
-║ The auth-helpers packages have been consolidated into @supabase/ssr       ║
+║ The auth-helpers packages have been consolidated into @indobase/ssr       ║
 ║ to provide better maintenance and consistent APIs across frameworks.      ║
 ║                                                                            ║
-║ Please update your package.json to use @supabase/ssr directly:            ║
+║ Please update your package.json to use @indobase/ssr directly:            ║
 ║   npm uninstall ${packageName.padEnd(42)} ║
-║   npm install @supabase/ssr                                               ║
+║   npm install @indobase/ssr                                               ║
 ║                                                                            ║
 ║ For more information, visit:                                              ║
-║ https://supabase.com/docs/guides/auth/server-side                         ║
+║ https://indobase.com/docs/guides/auth/server-side                         ║
 ╚════════════════════════════════════════════════════════════════════════════╝
     `);
   }
 }
 
-export * from "./createBrowserClient";
-export * from "./createServerClient";
+export * from "./createBrowserIndobaseClient";
+export * from "./createServerIndobaseClient";
 export * from "./types";
 export * from "./utils";
+
+export { createBrowserIndobaseClient as createBrowserClient } from "./createBrowserIndobaseClient";
+export { createServerIndobaseClient as createServerClient } from "./createServerIndobaseClient";

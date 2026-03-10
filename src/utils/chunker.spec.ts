@@ -54,7 +54,7 @@ describe("chunker", () => {
   });
 
   it("should chunk and return correct size chunks", async () => {
-    const key = "sb-xdbaubpgcisziicojymj-auth-token";
+    const key = "ib-xdbaubpgcisziicojymj-auth-token";
     const chunked = createChunks(key, DOUBLE_CHUNK_STRING);
     const combined = await combineChunks(key, (name) => {
       let chunk = chunked.find((chunk) => {

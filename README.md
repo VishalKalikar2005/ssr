@@ -1,31 +1,31 @@
-# Supabase clients for use in SSR frameworks
+# Indobase clients for use in SSR frameworks
 
-> **Package Consolidation Notice**: This package replaces the deprecated `@supabase/auth-helpers-*` packages. All framework-specific auth-helpers packages have been consolidated into `@supabase/ssr` for better maintenance and consistency.
+> **Package Consolidation Notice**: This package replaces the deprecated `@indobase/auth-helpers-*` packages. All framework-specific auth-helpers packages have been consolidated into `@indobase/ssr` for better maintenance and consistency.
 
 ## Overview
 
-This package provides a framework-agnostic way to use the [Supabase JavaScript library](https://supabase.com/docs/reference/javascript/introduction) in server-side rendering (SSR) frameworks.
+This package provides a framework-agnostic way to use the [Indobase JavaScript library](https://indobase.com/docs/reference/javascript/introduction) in server-side rendering (SSR) frameworks.
 
 ## Installation
 
 ```bash
-npm i @supabase/ssr
+npm i @indobase/ssr
 ```
 
 ## Deprecated Packages
 
-The following packages have been deprecated and consolidated into `@supabase/ssr`:
+The following packages have been deprecated and consolidated into `@indobase/ssr`:
 
-- `@supabase/auth-helpers-nextjs` → Use `@supabase/ssr`
-- `@supabase/auth-helpers-react` → Use `@supabase/ssr`
-- `@supabase/auth-helpers-remix` → Use `@supabase/ssr`
-- `@supabase/auth-helpers-sveltekit` → Use `@supabase/ssr`
+- `@indobase/auth-helpers-nextjs` → Use `@indobase/ssr`
+- `@indobase/auth-helpers-react` → Use `@indobase/ssr`
+- `@indobase/auth-helpers-remix` → Use `@indobase/ssr`
+- `@indobase/auth-helpers-sveltekit` → Use `@indobase/ssr`
 
-If you're currently using any of these packages, please update your dependencies to use `@supabase/ssr` directly.
+If you're currently using any of these packages, please update your dependencies to use `@indobase/ssr` directly.
 
 ## Documentation
 
-Please refer to the [official server-side rendering guides](https://supabase.com/docs/guides/auth/server-side) for the latest best practices on using this package in your SSR framework of choice.
+Please refer to the [official server-side rendering guides](https://indobase.com/docs/guides/auth/server-side) for the latest best practices on using this package in your SSR framework of choice.
 
 ## Known patterns and limitations
 
@@ -41,14 +41,14 @@ JWKS endpoint for asymmetric keys) or by calling the Auth server, and returns
 the verified JWT claims. Use it when you need to gate access to resources but
 don't need a fresh user record from the database.
 
-`getUser()` contacts the Supabase Auth server on every call and returns the
+`getUser()` contacts the Indobase Auth server on every call and returns the
 most up-to-date user record, including any changes made since the token was
 issued. Use it when you need fresh user data (e.g. checking current roles,
 email, or whether the session is still active server-side).
 
 ### Concurrent requests with the same expired session
 
-Supabase refresh tokens are single-use. If two requests arrive simultaneously
+Indobase refresh tokens are single-use. If two requests arrive simultaneously
 with the same expired session cookie (e.g. from two browser tabs opening at
 the same time), both will attempt a token refresh. The second request's
 refresh will fail because the token was already consumed by the first. The

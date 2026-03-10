@@ -1,24 +1,24 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`createServerClient > use cases > should not set cookies if the session does not need to be refreshed (storage key = custom-storage-key) 1`] = `
+exports[`createServerIndobaseClient > use cases > should not set cookies if the session does not need to be refreshed (storage key = custom-storage-key) 1`] = `
 {
   "id": "<user-id-user>",
 }
 `;
 
-exports[`createServerClient > use cases > should not set cookies if the session does not need to be refreshed (storage key = null) 1`] = `
+exports[`createServerIndobaseClient > use cases > should not set cookies if the session does not need to be refreshed (storage key = null) 1`] = `
 {
   "id": "<user-id-user>",
 }
 `;
 
-exports[`createServerClient > use cases > should refresh session correctly as typically used in middlewares (storage key = custom-storage-key) 1`] = `
+exports[`createServerIndobaseClient > use cases > should refresh session correctly as typically used in middlewares (storage key = custom-storage-key) 1`] = `
 {
   "id": "<user-id-user>",
 }
 `;
 
-exports[`createServerClient > use cases > should refresh session correctly as typically used in middlewares (storage key = custom-storage-key) 2`] = `
+exports[`createServerIndobaseClient > use cases > should refresh session correctly as typically used in middlewares (storage key = custom-storage-key) 2`] = `
 [
   {
     "name": "custom-storage-key",
@@ -53,13 +53,13 @@ exports[`createServerClient > use cases > should refresh session correctly as ty
 ]
 `;
 
-exports[`createServerClient > use cases > should refresh session correctly as typically used in middlewares (storage key = null) 1`] = `
+exports[`createServerIndobaseClient > use cases > should refresh session correctly as typically used in middlewares (storage key = null) 1`] = `
 {
   "id": "<user-id-user>",
 }
 `;
 
-exports[`createServerClient > use cases > should refresh session correctly as typically used in middlewares (storage key = null) 2`] = `
+exports[`createServerIndobaseClient > use cases > should refresh session correctly as typically used in middlewares (storage key = null) 2`] = `
 [
   {
     "name": "sb-project-ref-auth-token",
@@ -94,7 +94,7 @@ exports[`createServerClient > use cases > should refresh session correctly as ty
 ]
 `;
 
-exports[`createServerClient > use cases > should set PKCE code verifier correctly (storage key = custom-storage-key) 1`] = `
+exports[`createServerIndobaseClient > use cases > should set PKCE code verifier correctly (storage key = custom-storage-key) 1`] = `
 [
   {
     "name": "custom-storage-key-code-verifier",
@@ -109,7 +109,7 @@ exports[`createServerClient > use cases > should set PKCE code verifier correctl
 ]
 `;
 
-exports[`createServerClient > use cases > should set PKCE code verifier correctly (storage key = null) 1`] = `
+exports[`createServerIndobaseClient > use cases > should set PKCE code verifier correctly (storage key = null) 1`] = `
 [
   {
     "name": "sb-project-ref-auth-token-code-verifier",
@@ -124,7 +124,7 @@ exports[`createServerClient > use cases > should set PKCE code verifier correctl
 ]
 `;
 
-exports[`createServerClient > use cases > should set exchange PKCE code for session correctly (storage key = custom-storage-key) 1`] = `
+exports[`createServerIndobaseClient > use cases > should set exchange PKCE code for session correctly (storage key = custom-storage-key) 1`] = `
 [
   {
     "name": "custom-storage-key-code-verifier",
@@ -159,7 +159,7 @@ exports[`createServerClient > use cases > should set exchange PKCE code for sess
 ]
 `;
 
-exports[`createServerClient > use cases > should set exchange PKCE code for session correctly (storage key = custom-storage-key) 2`] = `
+exports[`createServerIndobaseClient > use cases > should set exchange PKCE code for session correctly (storage key = custom-storage-key) 2`] = `
 {
   "redirectType": null,
   "session": {
@@ -179,7 +179,7 @@ exports[`createServerClient > use cases > should set exchange PKCE code for sess
 }
 `;
 
-exports[`createServerClient > use cases > should set exchange PKCE code for session correctly (storage key = null) 1`] = `
+exports[`createServerIndobaseClient > use cases > should set exchange PKCE code for session correctly (storage key = null) 1`] = `
 [
   {
     "name": "sb-project-ref-auth-token-code-verifier",
@@ -214,7 +214,7 @@ exports[`createServerClient > use cases > should set exchange PKCE code for sess
 ]
 `;
 
-exports[`createServerClient > use cases > should set exchange PKCE code for session correctly (storage key = null) 2`] = `
+exports[`createServerIndobaseClient > use cases > should set exchange PKCE code for session correctly (storage key = null) 2`] = `
 {
   "redirectType": null,
   "session": {

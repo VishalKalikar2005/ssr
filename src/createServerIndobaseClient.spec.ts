@@ -2,13 +2,13 @@ import { describe, it, expect } from "vitest";
 
 import { MAX_CHUNK_SIZE, stringToBase64URL } from "./utils";
 import { CookieOptions } from "./types";
-import { createServerClient } from "./createServerClient";
+import { createServerIndobaseClient } from "./createServerIndobaseClient";
 
-describe("createServerClient", () => {
+describe("createServerIndobaseClient", () => {
   describe("validation", () => {
     it("should throw an error on empty URL and anon key", async () => {
       expect(() => {
-        createServerClient("URL", "", {
+        createServerIndobaseClient("URL", "", {
           cookies: {
             getAll() {
               return [];
@@ -22,7 +22,7 @@ describe("createServerClient", () => {
       }).toThrow();
 
       expect(() => {
-        createServerClient("", "anon key", {
+        createServerIndobaseClient("", "anon key", {
           cookies: {
             getAll() {
               return [];
@@ -51,8 +51,8 @@ describe("createServerClient", () => {
           options: CookieOptions;
         }[] = [];
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -80,7 +80,7 @@ describe("createServerClient", () => {
         const {
           data: { url },
           error,
-        } = await supabase.auth.signInWithOAuth({
+        } = await indobase.auth.signInWithOAuth({
           provider: "google",
           options: { skipBrowserRedirect: true },
         });
@@ -108,8 +108,8 @@ describe("createServerClient", () => {
           options: CookieOptions;
         }[] = [];
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -173,7 +173,7 @@ describe("createServerClient", () => {
         );
 
         const { data, error } =
-          await supabase.auth.exchangeCodeForSession("<code>");
+          await indobase.auth.exchangeCodeForSession("<code>");
 
         expect(error).toBeNull();
         expect(setAllCalls).toEqual(1);
@@ -191,8 +191,8 @@ describe("createServerClient", () => {
           options: CookieOptions;
         }[] = [];
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -285,7 +285,7 @@ describe("createServerClient", () => {
         const {
           data: { user },
           error,
-        } = await supabase.auth.getUser();
+        } = await indobase.auth.getUser();
 
         expect(error).toBeNull();
         expect(getAllCalls > 1).toBeTruthy();
@@ -299,8 +299,8 @@ describe("createServerClient", () => {
         let setAllCalls = 0;
         let getAllCalls = 0;
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -370,7 +370,7 @@ describe("createServerClient", () => {
         const {
           data: { user },
           error,
-        } = await supabase.auth.getUser();
+        } = await indobase.auth.getUser();
 
         expect(getAllCalls > 1).toBeTruthy();
         expect(setAllCalls).toEqual(0);
@@ -382,8 +382,8 @@ describe("createServerClient", () => {
       it(`should return valid session via getSession() without calling initialize() (storage key = ${storageKey})`, async () => {
         let setAllCalls = 0;
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -426,7 +426,7 @@ describe("createServerClient", () => {
         const {
           data: { session },
           error,
-        } = await supabase.auth.getSession();
+        } = await indobase.auth.getSession();
 
         expect(error).toBeNull();
         expect(session).not.toBeNull();
@@ -437,8 +437,8 @@ describe("createServerClient", () => {
       it(`getSession() reads from cookies without a network call; getUser() always contacts the auth server (storage key = ${storageKey})`, async () => {
         let fetchCalls = 0;
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -491,7 +491,7 @@ describe("createServerClient", () => {
 
         // getSession() reads directly from the cookie — no network call
         const { data: sessionData, error: sessionError } =
-          await supabase.auth.getSession();
+          await indobase.auth.getSession();
 
         expect(sessionError).toBeNull();
         expect(sessionData.session).not.toBeNull();
@@ -500,7 +500,7 @@ describe("createServerClient", () => {
 
         // getUser() always contacts the auth server to verify the token
         const { data: userData, error: userError } =
-          await supabase.auth.getUser();
+          await indobase.auth.getUser();
 
         expect(userError).toBeNull();
         expect(userData.user).not.toBeNull();
@@ -511,8 +511,8 @@ describe("createServerClient", () => {
       it(`should refresh expired session via getSession() without calling initialize() (storage key = ${storageKey})`, async () => {
         let setAllCalls = 0;
 
-        const supabase = createServerClient(
-          "https://project-ref.supabase.co",
+        const indobase = createServerIndobaseClient(
+          "https://project-ref.indobase.co",
           "anon-key",
           {
             ...(storageKey ? { cookieOptions: { name: storageKey } } : null),
@@ -580,7 +580,7 @@ describe("createServerClient", () => {
         const {
           data: { session },
           error,
-        } = await supabase.auth.getSession();
+        } = await indobase.auth.getSession();
 
         expect(error).toBeNull();
         expect(session).not.toBeNull();
@@ -594,7 +594,7 @@ describe("createServerClient", () => {
     it("should not auto-initialize on creation", async () => {
       let fetchCallCount = 0;
 
-      createServerClient("https://project-ref.supabase.co", "publishable-key", {
+      createServerIndobaseClient("https://project-ref.indobase.co", "publishable-key", {
         cookies: {
           getAll() {
             return [];

@@ -2,7 +2,7 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@supabase/ssr",
+      "package-name": "@indobase/ssr",
       "changelog-path": "CHANGELOG.md",
       "include-component-in-tag": false
     }

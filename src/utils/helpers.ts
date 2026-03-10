@@ -3,14 +3,14 @@ import * as cookie from "cookie";
 
 /**
  * @deprecated Since v0.4.0: Please use {@link parseCookieHeader}. `parse` will
- * not be available for import starting v1.0.0 of `@supabase/ssr`.
+ * not be available for import starting v1.0.0 of `@indobase/ssr`.
  */
 export const parse = cookie.parse;
 
 /**
  * @deprecated Since v0.4.0: Please use {@link serializeCookieHeader}.
  * `serialize` will not be available for import starting v1.0.0 of
- * `@supabase/ssr`.
+ * `@indobase/ssr`.
  */
 export const serialize = cookie.serialize;
 
