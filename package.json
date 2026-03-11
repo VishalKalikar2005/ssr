@@ -13,7 +13,6 @@
     "indobase",
     "ssr",
     "database",
-    "auth",
     "backend"
   ],
   "author": "Indobase, Inc.",
@@ -22,18 +21,26 @@
     "url": "https://github.com/indobase/ssr/issues"
   },
   "homepage": "https://github.com/indobase/ssr#readme",
+
+  "peerDependencies": {
+    "indobase-js": "^1.0.0"
+  },
+
   "devDependencies": {
     "@eslint/js": "^9.3.0",
     "@types/node": "^24.3.0",
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
-    "indobase-js": "^1.0.3",
+    "indobase-js": "^1.0.4",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.10.0",
     "vitest": "^1.6.0"
   },
-  "dependencies": {
-    "cookie": "^1.0.2"
-  }
+
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
 }
